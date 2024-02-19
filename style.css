@@ -39,6 +39,7 @@
     background-color: white;
     border-radius: 20px;
     width: 50%;
+    min-width: 400px;
     height: 50%;
     min-height: 400px;
     text-align: center;
@@ -67,16 +68,4 @@ button {
     color: white;
     padding: 10px;
     border-radius: 10px;
-}
-
-@media (min-width: 500px) and (max-width: 1000px) {
-    .container {
-        width: 75%;
-    }
-}
-
-@media (max-width: 500px) {
-    .container {
-        width: 100%;
-    }
 }
