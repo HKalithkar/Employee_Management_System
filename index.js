@@ -66,34 +66,42 @@ employeesAgeButton.addEventListener("click", ()=> {
     displayNames(employees);
 });
 
-//Add new Employee
-addEmployee.addEventListener("click", ()=> {
-    let newName = prompt("Enter employee name");
-    while(newName === null || newName === "") {
-        alert("Enter valid name");
-        newName = prompt("Enter employee name");
+//Functions to check whether user filled details
+let newName, newAge, newSalary, newRole;
+function inputFields() {
+    newName = (prompt("Enter employee name")).trim();
+    if(newName == "") {
+        alert("Unable to add new employee, Enter valid details");
+        return;
     }
 
-    newAge = prompt("Enter employee age");
-    while(newAge === null || newAge === "") {
-        alert("Enter valid age");
-        newAge = prompt("Enter employee age");
+    newAge = (prompt("Enter employee age")).trim();
+    if(newAge == "") {
+        alert("Unable to add new employee, Enter valid details");
+        return;
     }
     newAge = parseInt(newAge);
 
-    newSalary = prompt("Enter employee salary");
-    while(newSalary === null || newSalary === "") {
-        alert("Enter valid salary");
-        newSalary = prompt("Enter employee salary");
+    newSalary = (prompt("Enter employee salary")).trim();
+    if(newSalary == "") {
+        alert("Unable to add new employee, Enter valid details");
+        return;
     }
     newSalary = parseInt(newSalary);
 
-    newRole = prompt("Enter employee role");
-    while(newRole === null || newRole === "") {
-        alert("Enter valid role");
-        newRole = prompt("Enter employee role");
+    newRole = (prompt("Enter employee role")).trim();
+    if(newRole == "") {
+        alert("Unable to add new employee, Enter valid details");
+        return;
     }
+}
 
-    employees.push({name: newName, age: newAge, salary: newSalary, position: newRole});
-    alert("Employee added successfully");
+//Add new Employee
+addEmployee.addEventListener("click", ()=> {
+    inputFields();
+
+    if(newName != "" && newAge != "" && newSalary != "" && newRole != "") {
+        employees.push({name: newName, age: newAge, salary: newSalary, position: newRole});
+        alert("Employee added successfully");   
+    }
 })
